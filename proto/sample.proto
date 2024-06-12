@@ -7,6 +7,10 @@ message Message {
   string body = 1;
 }
 
+message MessageX {
+  string body = 1;
+}
+
 service SampleService {
-  rpc GetData(Message) returns (Message) {}
+  rpc GetData(Message) returns (MessageX) {}
 }

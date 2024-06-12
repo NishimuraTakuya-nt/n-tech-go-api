@@ -26,7 +26,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SampleServiceClient interface {
-	GetData(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error)
+	GetData(ctx context.Context, in *Message, opts ...grpc.CallOption) (*MessageX, error)
 }
 
 type sampleServiceClient struct {
@@ -37,9 +37,9 @@ func NewSampleServiceClient(cc grpc.ClientConnInterface) SampleServiceClient {
 	return &sampleServiceClient{cc}
 }
 
-func (c *sampleServiceClient) GetData(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
+func (c *sampleServiceClient) GetData(ctx context.Context, in *Message, opts ...grpc.CallOption) (*MessageX, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Message)
+	out := new(MessageX)
 	err := c.cc.Invoke(ctx, SampleService_GetData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -51,14 +51,14 @@ func (c *sampleServiceClient) GetData(ctx context.Context, in *Message, opts ...
 // All implementations should embed UnimplementedSampleServiceServer
 // for forward compatibility
 type SampleServiceServer interface {
-	GetData(context.Context, *Message) (*Message, error)
+	GetData(context.Context, *Message) (*MessageX, error)
 }
 
 // UnimplementedSampleServiceServer should be embedded to have forward compatible implementations.
 type UnimplementedSampleServiceServer struct {
 }
 
-func (UnimplementedSampleServiceServer) GetData(context.Context, *Message) (*Message, error) {
+func (UnimplementedSampleServiceServer) GetData(context.Context, *Message) (*MessageX, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetData not implemented")
 }
 

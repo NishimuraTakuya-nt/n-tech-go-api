@@ -38,7 +38,7 @@ type Sample struct {
 func (s *Sample) GetData(
 	ctx context.Context,
 	message *grpc_sample.Message,
-) (*grpc_sample.Message, error) {
+) (*grpc_sample.MessageX, error) {
 	log.Print(message.Body)
-	return &grpc_sample.Message{Body: "レスポンスデータ:: " + message.Body}, nil
+	return &grpc_sample.MessageX{Body: "レスポンスデータ:: " + message.Body}, nil
 }
