@@ -17,3 +17,7 @@ generate:
 .PHONY: clean
 clean:
 	rm -f *.pb.go
+
+.PHONY: tidy
+tidy:
+	go mod tidy
