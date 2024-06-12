@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/NishimuraTakuya-nt/n-tech-go-api/grpc_sample"
+	"github.com/NishimuraTakuya-nt/n-tech-grpc-go/grpc_sample"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"log"

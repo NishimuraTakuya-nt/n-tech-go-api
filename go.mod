@@ -1,4 +1,4 @@
-module github.com/NishimuraTakuya-nt/n-tech-go-api
+module github.com/NishimuraTakuya-nt/n-tech-grpc-go
 
 go 1.22.4
 
